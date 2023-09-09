@@ -6,13 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://unpkg.com/blockly/blockly.min.js"></script>
-  <script src="node_modules/@blockly/field-slider/dist/index.js"></script>
   <script>
     Blockly.Blocks['custom_test'] = {
       init: function () {
         this.appendDummyInput()
           .appendField("テストの値は")
-          .appendField(new FieldSlider(1, 0, 10, 0.1), "num")
+          .appendField(new Blockly.FieldNumber(0), "num")
           .appendField("です");
         this.setOutput(true, null);
         this.setColour(230);
@@ -65,3 +64,5 @@
     }
   </script>
 </body>
+
+</html>
