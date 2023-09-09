@@ -8,20 +8,12 @@
 </head>
 <body>
     <h1>Blockly Game</h1>
-    <button id="runButton">é¿çs</button>
+    <button id="runButton">ÂÆüË°å</button>
     <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+    <div id="output"></div>
     <xml id="toolbox" style="display:none">
-        <!-- ÉuÉçÉbÉNÇÃíËã` -->
-        <block type="controls_repeat_ext">
-            <value name="TIMES">
-                <shadow type="math_number">
-                    <field name="NUM">10</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="motion_move" />
         <block type="math_number">
-            <field name="NUM">100</field>
+            <field name="NUM">0</field>
         </block>
         <block type="math_arithmetic">
             <field name="OP">ADD</field>
@@ -36,50 +28,25 @@
                 </shadow>
             </value>
         </block>
-        <block type="math_random_int">
-            <value name="FROM">
-                <shadow type="math_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-            <value name="TO">
-                <shadow type="math_number">
-                    <field name="NUM">10</field>
-                </shadow>
-            </value>
-        </block>
         <block type="text">
             <field name="TEXT"></field>
         </block>
-        <block type="controls_if"></block>
-        <block type="logic_compare"></block>
-        <block type="logic_operation"></block>
-        <block type="math_round"></block>
-        <block type="math_trig"></block>
-        <block type="math_on_list"></block>
-        <block type="math_modulo"></block>
-        <block type="math_constrain"></block>
-        <block type="math_random_float"></block>
-        <block type="math_number_property"></block>
-        <block type="math_change">
-            <value name="DELTA">
-                <shadow type="math_number">
-                    <field name="NUM">1</field>
-                </shadow>
-            </value>
-        </block>
-        <block type="text_changeCase"></block>
-        <block type="text_trim"></block>
         <block type="text_print"></block>
     </xml>
     <script>
         var workspace = Blockly.inject('blocklyDiv',
             {toolbox: document.getElementById('toolbox')});
         var runButton = document.getElementById('runButton');
+        var outputDiv = document.getElementById('output');
+        
         runButton.addEventListener('click', function() {
             var code = Blockly.JavaScript.workspaceToCode(workspace);
             eval(code);
         });
+        
+        function printOutput(text) {
+            outputDiv.innerHTML = text;
+        }
     </script>
 </body>
 </html>
